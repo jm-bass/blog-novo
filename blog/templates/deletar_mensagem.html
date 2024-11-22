@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block header %}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url({{ blog.capa.url }})">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1>Contato</h1>
+                    <span class="subheading">Dúvidas? Eu tenho respostas!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+{% endblock header %}
+
+
+{% block content %}
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <p>Quer entrar em contato? Enive uma mensagem e responderei assim que possível!</p>
+                <div class="my-5">
+                    <h1>Tem certeza?</h1>
+                    <form id="contactForm" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-danger text-uppercase" id="submitButton" type="submit">SIM</button>
+                        <a class="btn btn-primary text-uppercase" href="{% url 'mensagem' %}">NÃO</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock content %}
