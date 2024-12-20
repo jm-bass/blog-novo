@@ -41,4 +41,16 @@
     </div>
 </article>
 
+{% if request.user.is_authenticated %}
+<div class="container">
+    <a href=" {% url 'deletar_post' post.id %} ">
+        <button type="button" class="btn btn-danger btn-sm">DELETAR</button>
+        </a>
+
+        <a href=" {% url 'editar_post' post.id %} ">
+        <button type="button" class="btn btn-warning btn-sm">EDITAR</button>
+        </a>
+</div>
+{% endif %}
+
 {% endblock content %}
